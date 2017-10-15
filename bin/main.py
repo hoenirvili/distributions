@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from distributions import Binomial
+from distributions import Bernoulli
 
 
 def main():
-    d = Binomial(3, 5, 0.85)
+    d = Bernoulli(0.85)
     print("Mean {}".format(d.mean()))
     print("Variance {}".format(d.variance()))
     print("Standard deviation {}".format(d.std()))

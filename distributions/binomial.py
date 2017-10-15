@@ -9,9 +9,8 @@ __all__ = ['Binomial']
 
 class Binomial:
     """
-    A random variable X that has a binomial distribution
-    represents the number of successes in a sequence of n
-    independent yes/no trials, each of which
+    A random variable X that has a bernoulli distribution
+    represents one success in one yes/no trial, each of which
     yields success with probability p.
 
     Parameters
@@ -40,10 +39,11 @@ class Binomial:
         self.__n = n
         self.__p = p
         self.__notp = 1 - p
+        self.__all_r = np.arange(0, self.__r + 1)
 
     def mean(self):
         """
-        Compute the mean of the binomial distribution
+        Compute the mean of the distribution
 
         Returns:
         --------
@@ -105,10 +105,9 @@ class Binomial:
         Returns:
         --------
 
-        pmf : narray
+        pmf : numpy.narray
         """
-        r = np.arange(0, self.__r + 1)
-        return binom.pmf(r, self.__n, self.__p)
+        return binom.pmf(self.__all_r, self.__n, self.__p)
 
     def plot(self):
         """
@@ -116,8 +115,7 @@ class Binomial:
         number of successes among n trials
         """
         pmfs = self.pmfs()
-        r = np.arange(0, self.__r + 1)
-        plt.plot(r, pmfs, 'o-')
+        plt.plot(self.__all_r, pmfs, 'o-')
         plt.title('Binomial: number of trials=%i , probability=%.2f' %
                   (self.__n, self.__p), fontsize=15)
         plt.xlabel('Number of successes')
