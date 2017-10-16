@@ -1,32 +1,40 @@
 #!/usr/bin/env python3
 
-from distutils.core import setup
+from setuptools import setup
+import unittest
 
+def my_test_suite():
+    test_loader = unittest.TestLoader()
+    test_suite = test_loader.discover('tests', pattern='*_test.py')
+    return test_suite
 
 def readme():
     with open('README.md') as f:
         return f.read()
 
-
-setup(name='Distributions',
-      version='0.1',
-      description='Simple package for computing different distributions',
-      author='hoenir',
-      maintainer='hoenir',
-      long_description=readme(),
-      install_requires=[
-          "numpy",
-          "matplotlib",
-          "scipy"
-      ],
-      classifiers=[
-          'Development Status :: 1 - Alpha',
-          'License :: OSI Approved :: MIT License',
-          'Programming Language :: Python :: 3.6',
-          'Topic :: Statistics :: Distributions',
-      ],
-      author_email='hoenirvili@gmail.com',
-      url='https://github.com/hoenirvili/distributions',
-      license='MIT',
-      packages=['distributions'],
-      zip_safe=False)
+setup(
+    name='distributions',
+    version='0.1',
+    description='Descrete distribution probability package',
+    long_description=readme(),
+    author='Hoenir',
+    author_email='hoenirvili@gmail.com',
+    url='https://github.com/hoenirvili/distributions/',
+    packages=['distributions'],
+    install_requires=[
+        'click',
+        'numpy',
+        'matplotlib',
+        'scipy'
+    ],
+    scripts=[
+        'bin/main.py'
+    ],
+    test_suite='setup.my_test_suite',
+    license='MIT',
+    classifiers=[
+        'Developmnet Status :: 4 - Beta',
+        'License :: OSI Approved :: MIT license',
+        'Operating System :: Linux',
+    ]
+)

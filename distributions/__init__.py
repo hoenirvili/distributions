@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from .binomial import Binomial
-from .bernoulli import Bernoulli
-from .geometric import Geometric
-from .poisson import Poisson
+from .binomial import *
+from .bernoulli import *
+from .geometric import *
+from .poisson import *
