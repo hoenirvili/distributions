@@ -3,3 +3,4 @@
 from .binomial import Binomial
 from .bernoulli import Bernoulli
 from .geometric import Geometric
+from .poisson import Poisson

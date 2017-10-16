@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+import click
 from distributions import Bernoulli
 
+@click.command()
 
 def main():
     d = Bernoulli(0.85)
