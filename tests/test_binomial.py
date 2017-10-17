@@ -2,8 +2,9 @@
 
 import unittest
 import numpy as np
+import numpy.testing as numpy_testing
 from distributions import Binomial
-import sys
+
 
 class TestBinomail(unittest.TestCase):
 
@@ -22,6 +23,9 @@ class TestBinomail(unittest.TestCase):
             (3, 5, None),
             (3, 5, -2),
             (3, 5, -1.2),
+            ('some', 5, 0.85),
+            (5, 'string', 0.85),
+            (5, 10, 'some'),
             (3, 5, 2))
 
         for param in params:
@@ -49,10 +53,7 @@ class TestBinomail(unittest.TestCase):
         self.assertTrue(cdf, 0.16479000000000005)
 
     def test_pmfs(self):
-        #TODO(hoenir): fix this test
-        #TODO(hoenir): add types to tests
+        t_pmfs = np.array([7.59375000e-05, 2.15156250e-03, 2.43843750e-02, 1.38178125e-01])
         pmfs = self.distribution.pmfs()
         self.assertIsNotNone(pmfs)
-
-if __name__ == '__main__':
-    unittest.main()
+        numpy_testing.assert_allclose(t_pmfs, pmfs)
