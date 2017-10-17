@@ -3,11 +3,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import poisson
+from .distribution import Distribution
 
 __all__ = ['Poisson']
 
 
-class Poisson:
+class Poisson(Distribution):
     """
         A random variable X that has a Poisson distribution represents 
         the number of events occurring in a fixed time interval with a 

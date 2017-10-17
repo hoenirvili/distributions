@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import click
+import distributions 
+
+@click.group()
+@click.option('--plot', default=False, is_flag=True, 
+            help='Plot all the pmfs of the distribution')
+@click.pass_context
+def main(context, plot):
+    print("[[Distibutions]]")
+
+    context.obj = {
+        'plot' : plot
+    }
+
+@main.command()
+@click.pass_context
+@click.argument('p', type=float)
+def bernoulli(context, p):
+    """ Bernoulli distribution """
+    d = distributions.Bernoulli(p)
+    
+    if context.obj['plot']:
+        d.plot()
+
+if __name__ == '__main__':
+    main()

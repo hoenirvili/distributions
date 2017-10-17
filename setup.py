@@ -28,7 +28,7 @@ setup(
         'scipy'
     ],
     scripts=[
-        'bin/main.py'
+        'bin/distributions'
     ],
     test_suite='setup.my_test_suite',
     license='MIT',

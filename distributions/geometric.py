@@ -4,11 +4,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import geom
+from .distribution import Distribution
 
 __all__ = ['Geometric']
 
 
-class Geometric:
+class Geometric(Distribution):
     """
     The geometric distribution is the distribution
     of the number of trials needed to get the first

@@ -3,12 +3,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import bernoulli
-
+from .distribution import Distribution
 
 __all__ = ['Bernoulli']
 
 
-class Bernoulli:
+class Bernoulli(Distribution):
     """
     A random variable X that has a bernoulli distribution
     represents the success in one

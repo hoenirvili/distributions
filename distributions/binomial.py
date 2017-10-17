@@ -3,11 +3,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import binom
-
+from .distribution import Distribution
 __all__ = ['Binomial']
 
 
-class Binomial:
+class Binomial(Distribution):
     """
     A random variable X that has a bernoulli distribution
     represents one success in one yes/no trial, each of which
