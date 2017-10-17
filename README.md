@@ -4,9 +4,26 @@
 
 Simple package for computing different distributions
 
-## Installation
 ```
-    python setup.py install
+Usage: distributions [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --plot  Plot all the pmfs of the distribution
+  --help  Show this message and exit.
+
+Commands:
+  bernoulli  Bernoulli distribution
+  binomial   Binomial distribution
+  geometric  Geometric distribution
+  poisson    Poisson distribution
+
+```
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+python setup.py install
 ```
 
 ## Run
@@ -18,7 +35,7 @@ $ distributions bernoulli 0.85
 Mean: 0.85
 Variance: 0.1275
 Standard deviation: 0.3570714214271425
-Cumulative distribution: 1.0
+Cumulative density function: 1.0
 Probability mass function: 0.0
 PMFS: [ 0.15  0.85]
 ```

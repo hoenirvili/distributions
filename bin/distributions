@@ -69,7 +69,7 @@ def run_distribution(**kwargs):
     print("Mean: {} ".format(dist.mean()))
     print("Variance: {}".format(dist.variance()))
     print("Standard deviation: {}".format(dist.std()))
-    print("Cumulative distribution: {}".format(dist.cdf()))
+    print("Cumulative density function: {}".format(dist.cdf()))
     print("Probability mass function: {}".format(dist.pmf()))
     print("PMFS: {}".format(dist.pmfs()))
 
