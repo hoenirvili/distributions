@@ -29,8 +29,8 @@ class Bernoulli(Distribution):
             raise ValueError("Invalid probability number")
 
         self.__p = p
-        self.__r = 2
-        self.__all_r = np.arange(0, self.__r)
+        self.__r = 1
+        self.__all_r = np.arange(0, self.__r+1)
 
     def mean(self):
         """

@@ -4,3 +4,4 @@ from .binomial import *
 from .bernoulli import *
 from .geometric import *
 from .poisson import *
+from .distribution import *

@@ -38,7 +38,7 @@ class TestBernoulli(unittest.TestCase):
 
     def test_pmf(self):
         pmf = self.distribution.pmf()
-        self.assertEqual(pmf, 0.0)
+        self.assertEqual(pmf, 0.69999999999999996)
 
     def test_pmfs(self):
         t_pmfs = np.array([ 0.3,  0.7])

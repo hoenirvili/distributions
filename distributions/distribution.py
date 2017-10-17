@@ -14,6 +14,10 @@ class Distribution(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
+    def __init__(self):
+        raise NotImplementedError("Users must define __init__ to use this base class")
+
+    @abc.abstractmethod
     def mean(self):
         """compute the mean of the distribution"""
         raise NotImplementedError('users must define mean to use this base class')

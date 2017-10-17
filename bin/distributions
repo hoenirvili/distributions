@@ -19,10 +19,62 @@ def main(context, plot):
 @click.argument('p', type=float)
 def bernoulli(context, p):
     """ Bernoulli distribution """
-    d = distributions.Bernoulli(p)
-    
-    if context.obj['plot']:
-        d.plot()
+    run_distribution(distribution = distributions.Bernoulli(p),
+                    plot = context.obj['plot'])
+
+@main.command()
+@click.pass_context
+@click.argument('r', type=int)
+@click.argument('n', type=int)
+@click.argument('p', type=float)
+def binomial(context, r, n, p):
+    """Binomial distribution"""
+    run_distribution(distribution = distributions.Binomial(r, n, p), 
+                    plot=context.obj['plot'])
+
+
+@main.command()
+@click.pass_context
+@click.argument('n', type=int)
+@click.argument('p', type=float)
+def geometric(context, n, p):
+    """Geometric distribution"""
+    run_distribution(distribution = distributions.Geometric(n, p), 
+                    plot=context.obj['plot'])
+
+@main.command()
+@click.pass_context
+@click.argument('n', type=int)
+@click.argument('rate', type=int)
+def poisson(context, n, rate):
+    """Poisson distribution"""
+    run_distribution(distribution = distributions.Poisson(n, rate), 
+                    plot=context.obj['plot'])
+
+
+def run_distribution(**kwargs):
+    """runs the distribution and plots, given the value of the
+    distributon key and plot flag"""
+
+    dist = kwargs.get('distribution', None)
+    if dist is None:
+        raise ValueError("Cannot run distribution, \
+                distribution instance is not specified")
+
+    plot = kwargs.get('plot', False)
+
+    if not isinstance(dist, distributions.Distribution):
+        raise TypeError("Invalid distribution instance given")
+
+    print("Mean: {} ".format(dist.mean()))
+    print("Variance: {}".format(dist.variance()))
+    print("Standard deviation: {}".format(dist.std()))
+    print("Cumulative distribution: {}".format(dist.cdf()))
+    print("Probability mass function: {}".format(dist.pmf()))
+    print("PMFS: {}".format(dist.pmfs()))
+
+    if plot:
+        dist.plot()
 
 if __name__ == '__main__':
     main()
