@@ -42,9 +42,35 @@ PMFS: [ 0.15  0.85]
 
 ## Plot the results
 
+
 ```bash
 $ distribution --plot bernoulli 0.85
 ```
 
+
 ![bernoulli](doc/bernoulli.png)
+
+
+```bash
+$ distributions --plot geometric 25 0.123
+```
+
+
+![geometric](doc/geometric.png)
+
+
+```
+$ distributions --plot binomial 30 20 0.7 
+```
+
+
+![binomial](doc/binomial.png)
+
+
+```
+$ distributions --plot poisson 25 3
+```
+
+
+![poisson](doc/poisson.png)
 
