@@ -22,8 +22,12 @@ Commands:
 ## Installation
 
 ```bash
-pip install -r requirements.txt
-python setup.py install
+make
+```
+
+## Remove
+```bash
+make uninstall
 ```
 
 ## Run
